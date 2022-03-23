@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:client"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Style x:Key="CustomFonts">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Anonymous Pro">
+            </Setter>
+        </Style>
+        
     </Application.Resources>
+   
 </Application>

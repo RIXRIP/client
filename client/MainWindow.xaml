@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1240" MaxHeight="700" MaxWidth="1240" MinHeight="700" MinWidth="1240" 
-     WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" >
+        Title="MainWindow" Height="731" Width="1248" MaxHeight="731" MaxWidth="1248" MinHeight="731" MinWidth="1248" 
+     WindowStartupLocation="CenterScreen">
 
     <!--МНОГОСТРАНИЧНОСТЬ-->
-    <Frame Name="MainFrame" Background="White" NavigationUIVisibility="Hidden" Width="1240" Height="700"/>
+    <Frame Name="MainFrame" Background="White" NavigationUIVisibility="Hidden"/>
         <Window.Resources>
 
         <Style x:Key="FocusVisual">

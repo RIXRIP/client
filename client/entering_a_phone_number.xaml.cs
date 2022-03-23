@@ -32,7 +32,7 @@ namespace client
 
         private void send_sms_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new enter_sms_code_page());
         }
     }
 }

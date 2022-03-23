@@ -1,15 +1,13 @@
-﻿<Page x:Class="client.entering_a_phone_number"
+﻿<Page x:Class="client.registration_name"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:client"
       mc:Ignorable="d" 
-    
-      Title="entering_a_phone_number" Height="700" Width="1240" MaxHeight="700" MaxWidth="1240" MinHeight="700" MinWidth="1240" > 
-    
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="registration_name" Height="700" Width="1240" MaxHeight="700" MaxWidth="1240" MinHeight="700" MinWidth="1240">
     <Page.Resources>
-        
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -29,13 +27,12 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
 
-        <!--СТИЛЬ КНОПКИ ОТПРАВКИ СМС-->
-        <Style x:Key="button_style_send_sms" TargetType="{x:Type Button}">
+
+        <Style x:Key= "buton_style_coinfarm_name_btn" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="Content" Value="{StaticResource CustomFonts}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -72,8 +69,7 @@
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
 
-        <!--СТИЛЬ ТЕКСТОВОГО ПОЛЯ ОТПРАВКИ НОМЕРА ТЕЛЕФОНА-->
-        <Style x:Key="enter_number_style" TargetType="{x:Type TextBox}">
+        <Style x:Key="text_box_style_surname" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
@@ -87,7 +83,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" CornerRadius="7" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <Border x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -99,9 +95,6 @@
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="true">
                                 <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsFocused"  Value="true">
-                                <Setter Property="Background" Value="Black"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -117,16 +110,63 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+
+
+        <Style x:Key="text_box_style_name" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+
     </Page.Resources>
 
-   
-        <Grid Background="#FFEFF8FF" Height="700" HorizontalAlignment="Center" Width="1240" >
-        <Label x:Name="enter_num" Style="{StaticResource CustomFonts}" Content="Введите номер телефона" HorizontalAlignment="Center" Margin="400,137,420,0" VerticalAlignment="Top" RenderTransformOrigin="0.299,0.656" FontSize="32" Width="398"/>
-        <Label  Style="{StaticResource CustomFonts}" Content="Мы отправим вам SMS с &#xA;      инструкциями" HorizontalAlignment="Center" Margin="434,190,464,0" VerticalAlignment="Top" RenderTransformOrigin="0.299,0.656" FontSize="28" FontFamily="Anonymous Pro" Foreground="#FF807F7F" Width="342" Height="80"/>
-        <TextBox HorizontalAlignment="Center" Height="55" Margin="420,385,420,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" BorderThickness="1,1,1,1" Background="#FFD5ECFC" BorderBrush="#FF759CFF" Style="{DynamicResource enter_number_style}" TextChanged="TextBox_TextChanged" Text="aAA"/>
-        <Button x:Name="send_sms" Content="Отправить SMS" HorizontalAlignment="Center" Margin="420,580,420,0" VerticalAlignment="Top" Width="400" Height="90" BorderThickness="1,1,1,1" BorderBrush="#FF0047FF" Background="#FF80E8FF" FontSize="36" RenderTransformOrigin="0.483,-1.05" Style="{DynamicResource button_style_send_sms}" Click="send_sms_Click" />
-        <Label  Style="{StaticResource CustomFonts}" Content="  Телефон" HorizontalAlignment="Center" Margin="422,355,690,0" VerticalAlignment="Top" Width="128" FontFamily="Anonymous Pro" Height="37" FontSize="24"/>
+
+    <Grid Background="#FFEFF8FF" Height="700" HorizontalAlignment="Center" Width="1240">
+        <Label  Style="{StaticResource CustomFonts}" Content="&#xA;&#xA; Эти данные смогу видеть&#xD;&#xA;     все пользователи" HorizontalAlignment="Center" Margin="420,69,420,0" VerticalAlignment="Top" RenderTransformOrigin="0.299,0.656" FontSize="28" FontFamily="Anonymous Pro" Foreground="#FF807F7F" Width="400" Height="153"/>
+        <Button x:Name="coinfarm_button" Content="Подтвердить" HorizontalAlignment="Center" Margin="420,575,420,0" VerticalAlignment="Top" Width="400" Height="90" BorderThickness="1,1,1,1" BorderBrush="#FF0047FF" Background="#FF80E8FF" FontSize="36" RenderTransformOrigin="0.483,-1.05" Style="{DynamicResource buton_style_coinfarm_name_btn}" Click="send_sms_Click" />
+        <Label  Style="{StaticResource CustomFonts}" Content="Фамилия" HorizontalAlignment="Center" Margin="416,269,696,0" VerticalAlignment="Top" Width="128" FontFamily="Anonymous Pro" Height="37" FontSize="24"/>
+        <Label  Style="{StaticResource CustomFonts}" Content="Имя" HorizontalAlignment="Center" Margin="422,390,752,0" VerticalAlignment="Top" Width="66" FontFamily="Anonymous Pro" Height="37" FontSize="24"/>
+        <TextBox x:Name="surname"  HorizontalAlignment="Center" Height="60" Margin="420,295,420,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" BorderThickness="1,1,1,1" Background="#FFD5ECFC" BorderBrush="#FF759CFF" Style="{DynamicResource text_box_style_surname}" TextChanged="TextBox_TextChanged" Text="892555"/>
+        <TextBox x:Name="name"  HorizontalAlignment="Center" Height="60" Margin="420,420,420,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="36" BorderThickness="1,1,1,1" Background="#FFD5ECFC" BorderBrush="#FF759CFF" Style="{DynamicResource text_box_style_name}" TextChanged="TextBox_TextChanged" Text="892555"/>
+        <Label x:Name="enter_num" Style="{StaticResource CustomFonts}" Content="Введите Имя и Фамилию" HorizontalAlignment="Center" Margin="420,69,420,0" VerticalAlignment="Top" RenderTransformOrigin="0.299,0.656" FontSize="32" Width="400"/>
 
     </Grid>
-        
 </Page>

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,7 +56,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="registration_name.xaml.cs">
+      <DependentUpon>registration_name.xaml</DependentUpon>
+    </Compile>
     <Page Include="entering_a_phone_number.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="enter_sms_code_page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,6 +82,9 @@
     <Compile Include="entering_a_phone_number.xaml.cs">
       <DependentUpon>entering_a_phone_number.xaml</DependentUpon>
     </Compile>
+    <Compile Include="enter_sms_code_page.xaml.cs">
+      <DependentUpon>enter_sms_code_page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="friend_page.xaml.cs">
       <DependentUpon>friend_page.xaml</DependentUpon>
     </Compile>
@@ -82,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="main_page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="registration_name.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,6 +122,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\AnonymousPro-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,6 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WIN_20210520_14_56_42_Pro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Bezymyanny-3.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

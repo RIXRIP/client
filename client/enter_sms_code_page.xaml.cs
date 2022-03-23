@@ -13,21 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace client
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для enter_sms_code_page.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class enter_sms_code_page : Page
     {
-        public MainWindow()
+        public enter_sms_code_page()
         {
             InitializeComponent();
-            MainFrame.Content = new entering_a_phone_number();
         }
-       
 
-      
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void send_sms_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
